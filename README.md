@@ -1,6 +1,3 @@
-rebar-project-template
-======================
-
 This is a set of rebar templates for distributed applications.  They build on RJ's erlang_rebar_example_project (https://github.com/RJ/erlang_rebar_example_project) with some tweaks.
 
 The created project is meant to compile and work out-of-the-box.  I'd have it be an echo server or something but don't have time to spare right now for it.
@@ -164,4 +161,4 @@ robspassky@carmine:~/Work/erlang$ curl http://carmine:6969/my-first-page.html
     <h2>This page is located in code:priv_dir(projectnamehere)/index.html unless the default docroot was overriden in app.config.</h2>
   </body>
 </html>
-```
+
