@@ -1,0 +1,8 @@
+ebin
+rel/{{projectid}}
+*.beam
+*~
+deps
+erl_crash.dump
+*/#*#
+#*#

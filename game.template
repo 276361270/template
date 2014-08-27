@@ -1,0 +1,62 @@
+%% -*- erlang -*-
+
+%%
+%% project template
+%%
+%% Sets up boilerplate for a distributed erlang application that
+%% supports hot upgrades.
+%%
+%% Example:
+%%
+%%   rebar create template=project projectid=superfly
+%%
+% App Files
+{variables, [{projectid, "myproj"}]}.
+
+%readme
+{template, "game/README.md",          "{{projectid}}/README.md"}.
+% Build Files
+{template, "game/Makefile",          "{{projectid}}/Makefile"}.
+{template, "game/gitignore",         "{{projectid}}/.gitignore"}.
+{template, "game/rebar.config",      "{{projectid}}/rebar.config"}.
+{template, "game/game.config",      "{{projectid}}/{{projectid}}.config"}.
+{template, "game/start-dev.sh",      "{{projectid}}/start-dev.sh"}.
+{chmod,    8#744,                    "{{projectid}}/start-dev.sh"}.
+
+% App Files
+{template, "game/game.app.src",    "{{projectid}}/apps/{{projectid}}/src/{{projectid}}.app.src"}.
+{template, "game/reloader.erl",    "{{projectid}}/apps/{{projectid}}/src/reloader.erl"}.
+{template, "game/game_store.erl",   "{{projectid}}/apps/{{projectid}}/src/{{projectid}}_store.erl"}.
+{template, "game/game.erl",        "{{projectid}}/apps/{{projectid}}/src/{{projectid}}.erl"}.
+{template, "game/game_app.erl",    "{{projectid}}/apps/{{projectid}}/src/{{projectid}}_app.erl"}.
+{template, "game/game_policy_server.erl",    "{{projectid}}/apps/{{projectid}}/src/{{projectid}}_policy_server.erl"}.
+{template, "game/game_policy_sup.erl",    "{{projectid}}/apps/{{projectid}}/src/{{projectid}}_policy_sup.erl"}.
+{template, "game/game_tcp_server.erl",    "{{projectid}}/apps/{{projectid}}/src/{{projectid}}_tcp_server.erl"}.
+{template, "game/game_wsocket_sup.erl",    "{{projectid}}/apps/{{projectid}}/src/{{projectid}}_wsocket_sup.erl"}.
+{template, "game/game_wsocket_hander.erl", "{{projectid}}/apps/{{projectid}}/src/{{projectid}}_wsocket_hander.erl"}.
+%%{template, "game/game.erl",        "{{projectid}}/apps/{{projectid}}/src/{{projectid}}.erl"}.
+{template, "game/game_tcp_flash_server.erl",    "{{projectid}}/apps/{{projectid}}/src/{{projectid}}_tcp_flash_server.erl"}.
+
+{template, "game/game_sup.erl",    "{{projectid}}/apps/{{projectid}}/src/{{projectid}}_sup.erl"}.
+{template, "game/game_tcp_flash_sup.erl",    "{{projectid}}/apps/{{projectid}}/src/{{projectid}}_tcp_flash_sup.erl"}.
+{template, "game/game_tcp_sup.erl",    "{{projectid}}/apps/{{projectid}}/src/{{projectid}}_tcp_sup.erl"}.
+% Release files
+{template, "game/index.html",       "{{projectid}}/apps/{{projectid}}/priv/index.html"}.
+{template, "game/jquery.min.js",    "{{projectid}}/apps/{{projectid}}/priv/static/jquery.min.js"}.
+
+% Release files
+{template, "game/vm.args",           "{{projectid}}/rel/files/vm.args"}.
+{template, "game/reltool.config",    "{{projectid}}/rel/reltool.config"}.
+{template, "game/app.config",        "{{ projectid}}/rel/files/app.config"}.
+
+{file,     "game/erl.script",        "{{projectid}}/rel/files/erl"}.
+{chmod,    8#744,                       "{{projectid}}/rel/files/erl"}.
+
+{file,     "game/nodetool",          "{{projectid}}/rel/files/nodetool"}.
+{chmod,    8#744,                       "{{projectid}}/rel/files/nodetool"}.
+
+{file,     "game/runner",            "{{projectid}}/rel/files/{{projectid}}"}.
+{chmod,    8#744,                       "{{projectid}}/rel/files/{{projectid}}"}.
+{template, "game/simplenode.windows.runner.cmd", "{{projectid}}/rel/files/{{projectid}}.cmd"}.
+{file, "game/simplenode.windows.start_erl.cmd", "{{projectid}}/rel/files/start_erl.cmd"}.
+{file, "game/simplenode.install_upgrade.escript", "{{projectid}}/rel/files/install_upgrade.escript"}.

@@ -1,0 +1,22 @@
+{application, {{projectid}},
+ [
+  {description, "An erlang application."},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {applications, [
+                  sasl,
+                  kernel,
+                  stdlib,
+                  crypto,
+                  mnesia,
+                  lager,
+                  luerl,
+                  ibrowse,
+                  msgpack,
+                  boss_db,
+                  cowboy,
+                  resource_discovery
+                 ]},
+  {mod, { {{projectid}}_app, []} },
+  {env, [{policy_file, liberal},{gameport,9933},{listen,2},{flashport,8843},{webport,8080},{weblisten,10}]}
+ ]}.

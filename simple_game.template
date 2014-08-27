@@ -1,0 +1,47 @@
+%% -*- erlang -*-
+
+%%
+%% project template
+%%
+%% Sets up boilerplate for a distributed erlang application that
+%% supports hot upgrades.
+%%
+%% Example:
+%%
+%%   rebar create template=project projectid=superfly
+%%
+% App Files
+{variables, [{projectid, "myproj"}]}.
+
+%readme
+{template, "simple_game/README.md",          "{{projectid}}/README.md"}.
+% Build Files
+{template, "simple_game/Makefile",          "{{projectid}}/Makefile"}.
+{template, "simple_game/gitignore",         "{{projectid}}/.gitignore"}.
+{template, "simple_game/rebar.config",      "{{projectid}}/rebar.config"}.
+{template, "simple_game/start-dev.sh",      "{{projectid}}/start-dev.sh"}.
+{chmod,    8#744,                    "{{projectid}}/start-dev.sh"}.
+
+% App Files
+{template, "simple_game/game.app.src",    "{{projectid}}/apps/{{projectid}}/src/{{projectid}}.app.src"}.
+{template, "simple_game/reloader.erl",    "{{projectid}}/apps/{{projectid}}/src/reloader.erl"}.
+{template, "simple_game/game.erl",        "{{projectid}}/apps/{{projectid}}/src/{{projectid}}.erl"}.
+{template, "simple_game/game_app.erl",    "{{projectid}}/apps/{{projectid}}/src/{{projectid}}_app.erl"}.
+{template, "simple_game/game_sup.erl",    "{{projectid}}/apps/{{projectid}}/src/{{projectid}}_sup.erl"}.
+{template, "simple_game/game_server.erl",    "{{projectid}}/apps/{{projectid}}/src/{{projectid}}_server.erl"}.
+
+
+% Release files
+{template, "simple_game/README.md",          "{{projectid}}/deps/README.md"}.
+{template, "simple_game/vm.args",           "{{projectid}}/rel/files/vm.args"}.
+{template, "simple_game/reltool.config",    "{{projectid}}/rel/reltool.config"}.
+{template, "simple_game/app.config",        "{{ projectid}}/rel/files/app.config"}.
+
+{file,     "simple_game/erl.script",        "{{projectid}}/rel/files/erl"}.
+{chmod,    8#744,                       "{{projectid}}/rel/files/erl"}.
+
+{file,     "simple_game/nodetool",          "{{projectid}}/rel/files/nodetool"}.
+{chmod,    8#744,                       "{{projectid}}/rel/files/nodetool"}.
+
+{file,     "simple_game/runner",            "{{projectid}}/rel/files/{{projectid}}"}.
+{chmod,    8#744,                       "{{projectid}}/rel/files/{{projectid}}"}.
